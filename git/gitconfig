@@ -1,0 +1,27 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+  user = memeriaj
+  email = alexmemering@gmail.com
+  editor = vim
+  excludesfile = ~/.gitignore_global
+[user]
+  name = Alex Memering
+  email = alexmemering@gmail.com
+[include]
+  path = .gitlocalconfig
+[alias]
+  # Pretty log for short
+  lg = log --pretty=oneline -n 20 --graph --abbrev-commit
+  deep-clone = clone --recursive  
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  # Remove branches that have already been merged with master
+  delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+[push]
+  default = simple
+  followTags = true
+[commit]
+  gpgsign = true

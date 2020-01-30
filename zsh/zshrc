@@ -1,0 +1,11 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+if [ -d $HOME/.zshrc.d ]; then
+  for i in $HOME/.zshrc.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
