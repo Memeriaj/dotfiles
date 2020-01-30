@@ -10,4 +10,4 @@ Then run `./bootstrap.py` to put the dot files in the correct locations.
 
 ## Inspiration
 
-This setup was inspired by [ryanpbrewster][https://github.com/ryanpbrewster/config] but was cloned from [rockwotj][https://github.com/rockwotj/dotfiles] (who also got it from the same place).
+This setup was inspired by [ryanpbrewster](https://github.com/ryanpbrewster/config) but was cloned from [rockwotj](https://github.com/rockwotj/dotfiles) (who also got it from the same place).
