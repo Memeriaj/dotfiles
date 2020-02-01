@@ -2,6 +2,7 @@
 
 import argparse
 import os
+import subprocess
 
 PARSER = argparse.ArgumentParser(description = "Bootstrap personal config")
 PARSER.add_argument(
@@ -26,6 +27,10 @@ def symlink(src, dest):
             raise Exception("{} already exists, use -f to overwrite".format(dest))
     print("symlinking {} to {}".format(src, dest))
     os.symlink(src, dest)
+
+def check_call(cmd):
+    print("running {}...".format(" ".join(cmd)))
+    subprocess.check_call(cmd)
 
 
 def git(config, home):
@@ -61,6 +66,11 @@ def zsh(config, home):
     symlink(
             "{}/zsh/zshrc.d".format(config),
             "{}/.zshrc.d".format(home))
+    # This needs to be be on your $fpath
+    symlink(
+            "{}/zsh/completion".format(config),
+            "{}/.zsh/completion".format(home))
+    check_call(["mkdir", "-p", "{}/.zsh/cache/".format(home)])
 
 def main():
     global FLAGS
