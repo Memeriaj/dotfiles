@@ -46,6 +46,14 @@ def ssh(config, home):
             "{}/ssh/config".format(config),
             "{}/.ssh/config".format(home))
 
+def gpg(config, home):
+    symlink(
+            "{}/gpg/gpg.conf".format(config),
+            "{}/.gnupg/gpg.conf".format(home))
+    symlink(
+            "{}/gpg/gpg-agent.conf".format(config),
+            "{}/.gnupg/gpg-agent.conf".format(home))
+
 def zsh(config, home):
     symlink(
             "{}/zsh/zshrc".format(config),
@@ -65,6 +73,7 @@ def main():
     git(config, home)
     tmux(config, home)
     ssh(config, home)
+    gpg(config, home)
     zsh(config, home)
 
     print("done!")
