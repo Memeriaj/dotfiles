@@ -41,6 +41,11 @@ def tmux(config, home):
             "{}/tmux/tmux.conf".format(config),
             "{}/.tmux.conf".format(home))
 
+def ssh(config, home):
+    symlink(
+            "{}/ssh/config".format(config),
+            "{}/.ssh/config".format(home))
+
 def zsh(config, home):
     symlink(
             "{}/zsh/zshrc".format(config),
@@ -59,6 +64,7 @@ def main():
 
     git(config, home)
     tmux(config, home)
+    ssh(config, home)
     zsh(config, home)
 
     print("done!")
