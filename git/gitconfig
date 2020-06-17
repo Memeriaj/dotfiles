@@ -21,7 +21,7 @@
   # Remove branches that have already been merged with master
   delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 [push]
-  default = simple
+  default = current
   followTags = true
 [commit]
   gpgsign = true
