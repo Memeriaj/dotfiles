@@ -11,15 +11,26 @@
 [include]
   path = .gitlocalconfig
 [alias]
+  # Amend the currently staged files to the latest commit
+  amend = commit --amend --no-edit
+  branches = branch -a
+  deep-clone = clone --recursive
+  # Remove branches that have already been merged (including squashed) with master
+  # Taken from https://github.com/not-an-aardvark/git-delete-squashed
+  delete-merged = "!f(){ \
+      git checkout -q master \
+      && git for-each-ref refs/heads/ \"--format=%(refname:short)\" \
+      | while read branch; do \
+        mergeBase=$(git merge-base master $branch) \
+        && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch\\^{tree}) -p $mergeBase -m _)) == \"-\"* ]] \
+        && git branch -D \"$branch\"; \
+      done \
+    }; f; unset f;"
   # Pretty log for short
   lg = log --pretty=oneline -n 20 --graph --abbrev-commit
-  deep-clone = clone --recursive  
+  remotes = remote -v
   # Show verbose output about tags, branches or remotes
   tags = tag -l
-  branches = branch -a
-  remotes = remote -v
-  # Remove branches that have already been merged with master
-  delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 [push]
   default = current
   followTags = true
