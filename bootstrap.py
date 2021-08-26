@@ -41,12 +41,6 @@ def git(config, home):
             "{}/git/gitignore_global".format(config),
             "{}/.gitignore_global".format(home))
 
-
-def github(config, home):
-    symlink(
-            "{}/github/config.yml".format(config),
-            "{}/.config/gh/config.yml".format(home))
-
 def tmux(config, home):
     symlink(
             "{}/tmux/tmux.conf".format(config),
@@ -87,7 +81,6 @@ def main():
     home = os.environ["HOME"]
 
     git(config, home)
-    github(config, home)
     tmux(config, home)
     ssh(config, home)
     gpg(config, home)
