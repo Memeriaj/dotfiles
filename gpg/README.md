@@ -1,1 +1,3 @@
 This came about due to following the instuctions in [this medium post](https://medium.com/@timmywil/sign-your-commits-on-github-with-gpg-566f07762a43).
+
+Make sure to run `gpg --full-generate-key` before bootstraping the dotfiles.  If that command is hanging before anything is displayed try deleting the entire `.gnupg` folder and run the command again (then make sure to run the bootstap command again to put the config files back).
