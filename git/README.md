@@ -1,0 +1,1 @@
+Create a `.gitlocalconfig` file that includes things specific to the particular machine.  Things like the `user.signingkey` for the gpg key and maybe the email address (to override with tyour work email).
