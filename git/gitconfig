@@ -34,5 +34,7 @@
 [push]
   default = current
   followTags = true
+[pull]
+  rebase = false  # Merge if there are conflicts
 [commit]
   gpgsign = true
